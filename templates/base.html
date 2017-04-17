@@ -1,0 +1,49 @@
+{% load staticfiles %}
+<!DOCTYPE>
+<html ng-app="musicApp">
+<script>
+    <!--Third party js-->
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" i></script>
+
+    <!--Main angularjs file-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-resource.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.js"></script>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!--Main Angular config file-->
+    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/app.config.js' %}"></script>
+
+    <!--Core utility file-->
+    <script src="{% static 'js/core/core.module.js' %}"></script>
+
+    <!--Home-->
+    <script src="{% static 'js/home/home.module.js' %}"></script>
+    <script src="{% static 'js/home/home.controller.js' %}"></script>
+    <script src="{% static 'js/home/config.route.js' %}"></script>
+    <script src="{% static 'js/home/home.services.js' %}"></script>
+
+
+</head>
+<body>
+    <div class="container">
+
+
+
+        <!--navbar here -->
+
+    <div ng-view></div>
+
+    </div>
+
+</body>
+</html>

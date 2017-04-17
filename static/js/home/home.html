@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Add data to Api</h2>
+
+    <div class="music_data">
+        <form ng-submit='vm.add_music_data(musicData)'>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter App name" ng-model='vm.musicData.app_name'>.
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter App Url" ng-model='vm.musicData.app_url'>.
+            </div>
+
+
+            <div class="form-group">
+                <input type="text" class="form-control' placeholder="Desctiption" width="200" height="200" ng-model='vm.musicData.description'>.
+            </div>
+
+            <div class="form-group">
+                <input type="number" class="form-control' placeholder="$5" ng-model='vm.musicData.currency'>.
+            </div>
+
+            <button type="submit" class="btn btn-lg btn-success">Save</button>
+        </form>
+    </div>
+
+</div>
