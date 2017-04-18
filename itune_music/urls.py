@@ -13,16 +13,26 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url,include
+from django.conf.urls import url, include
 from django.contrib import admin
-from music import views
+from django.views.generic import TemplateView
+from django.views.decorators.csrf import ensure_csrf_cookie
+
+from rest_framework.authtoken import views
+from django.views.static import serve
+from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', ensure_csrf_cookie(TemplateView.as_view(template_name='base.html'))),
 
-    url(r'',include('music.urls',namespace="music")),
+    # For API
+    url(r'', include('music.urls')),
+    # url(r'^api-auth/', include('rest_framework.urls',
+    #                            namespace='rest_framework')),
+    # url(r'^api-token-auth/', views.obtain_auth_token),
 
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 ]
-
 
 

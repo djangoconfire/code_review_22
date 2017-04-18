@@ -1,27 +1,122 @@
 <div class="container">
-    <h2>Add data to Api</h2>
-
-    <div class="music_data">
-        <form ng-submit='vm.add_music_data(musicData)'>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Enter App name" ng-model='vm.musicData.app_name'>.
-            </div>
-
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Enter App Url" ng-model='vm.musicData.app_url'>.
-            </div>
-
-
-            <div class="form-group">
-                <input type="text" class="form-control' placeholder="Desctiption" width="200" height="200" ng-model='vm.musicData.description'>.
-            </div>
-
-            <div class="form-group">
-                <input type="number" class="form-control' placeholder="$5" ng-model='vm.musicData.currency'>.
-            </div>
-
-            <button type="submit" class="btn btn-lg btn-success">Save</button>
-        </form>
+    <div class="add_data">
+        <button type="button" class="btn btn-primary " style="float:right;" data-toggle="modal" data-target="#add_new_data"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add data to Api</button>
     </div>
+        
+    <div class="table-container">
+        <table class="table table-responsive table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Track Name</th>
+                    <th>Genre</th>
+                    <th>Language Codes</th>
+                    <th>App Url</th>
+                    <th>Description</th>
+                    <th>Advisories</th>
+                </tr>
+            </thead>
+            <tr ng-repeat="music in vm.music_list">
+                    
+                <td>
+                    <strong>{{music.app_name}}</strong>
+                </td>
 
+
+                <td>
+                    <strong>{{music.genre}}</strong>
+                </td>
+
+                <td>
+                    {{music.languages}}
+                </td>
+
+                 <td>
+                    <strong>{{music.app_url}}</strong>
+                </td>
+
+                <td>
+                    {{music.description}}
+                </td>
+                
+
+                <td>
+                    {{music.advisories}}
+                </td>
+
+            </tr>
+        </table>
+    </div>
 </div>
+
+
+<!--  Modal Pop up-->
+<div id="add_new_data" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Enter New Record</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" ng-submit='vm.add_music_data(musicData)'>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" placeholder="Enter App name" ng-model='vm.musicData.app_name'>
+                        </div>.
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" placeholder="Enter App Url" ng-model='vm.musicData.app_url'>
+                        </div>.
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" placeholder="Enter genre name" ng-model='vm.musicData.genre'>
+                        </div>.
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" placeholder="Enter Language Codes" ng-model='vm.musicData.languages'>
+                        </div>.
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" placeholder="Enter currency" ng-model='vm.musicData.currency'>
+                        </div>.
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <textarea type="text" class="form-control" placeholder="Say about the product..." width="400" height="400" ng-model='vm.musicData.description'></textarea>
+                        </div>    .
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" placeholder="Enter come advisories" ng-model='vm.musicData.advisories'>
+                        </div>    .
+                    </div>
+
+
+
+                     <button type="submit" class="btn btn-success">Save</button>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+

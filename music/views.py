@@ -8,16 +8,14 @@ from rest_framework import generics
 from serializers import MusicSerializer
 from models import Music
 
-def index(request):
-    return render(request,'base.html',{})
 
-@csrf_exempt
-def MusicData(request):
-    form_data=request.POST.get('form_data','')
-    form_data=json.loads(form_data)
+from rest_framework.generics import (
+    ListAPIView, 
+    )
+
 
 # music list api view <post list view>
-class MusicApiView(generics.ListCreateAPIView):
+class MusicApiView(ListAPIView):
     queryset=Music.objects.all()
     serializer_class=MusicSerializer
 

@@ -4,15 +4,17 @@
 
     angular
         .module('musicApp',[
-    //         third party library
-               'ngRoute',
-               'ngResource',
-               'ngStorage',
+      // Angular modules
+        'ngRoute',
+        'ngResource',
+        'ngStorage',
+        'ngMessages',
 
-    //          custom file
-                'app.core',
-                'app.home'
-                ]);
+//      custom file
+        'app.core',
+        'app.home',
+        'app.notify'
+    ]);
 
 
 

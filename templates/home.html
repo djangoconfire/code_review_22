@@ -4,26 +4,17 @@
 
 
 {% block js_block %}
-    $(document).ready(function(){
-        $('#api_button').click(function(event){
-            event.preventDefault();
-
-            <!--making request to api-->
-            $.ajax({
-                url : 'https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/',
-                method : 'get'
-
-
-            });
-        });
-
-    });
+    <script src="{% static 'js/itune.js' %}"></script>
 {% endblock %}
 
 
 {% block content %}
     <div class="container">
-        <button type="button" id="api_button" class="btn btn-primary">Click</button>
+    </div>
+
+    <div id="form_area">
+        <h2>Get Data from Itune Api</h2>
+        <input type="submit" id="get" class="btn btn-primary" value="Get">
     </div>
 
 {% endblock %}
